@@ -1,0 +1,19 @@
+<div class="student-info-container" *ngIf="student">
+    <h2>Student Details</h2>
+    <ul>
+      <!-- <li><strong>ID:</strong> {{ student.sno }}</li> -->
+      <li><strong>Name:</strong> {{ student.name }}</li>
+      <li><strong>Course:</strong> {{ student.course }}</li>
+      <li><strong>Gender:</strong> {{ student.gender }}</li>
+      <li><strong>Age:</strong> {{ student.age }}</li>
+      <li><strong>Contact:</strong> {{ student.contact }}</li>
+      <li><strong>Address:</strong> {{ student.address }}</li>
+      <li><strong>Email:</strong> {{ student.email }}</li>
+      <li><strong>Birthday:</strong> {{ student.birthday }}</li>
+      <li><strong>Motto:</strong> "{{ student.motto }}"</li>
+    </ul>
+    <button class="back-btn" (click)="goBack()">⬅ Back to Mainpage</button>
+  </div>
+  
+  
+  

@@ -1,0 +1,56 @@
+.student-info-container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 25px 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  .student-info-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    font-size: 1.8rem;
+  }
+  
+  .student-info-container ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .student-info-container li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 1rem;
+    color: #444;
+  }
+  
+  .student-info-container li strong {
+    color: #2c3e50;
+    display: inline-block;
+    width: 100px;
+  }
+  
+  .student-info-container li:last-child {
+    border-bottom: none;
+  }
+  
+  .back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 10px 18px;
+    background-color: #3498db;
+    color: white;
+    text-decoration: none;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+  
+  .back-btn:hover {
+    background-color: #217dbb;
+  }
+  

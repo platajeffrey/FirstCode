@@ -1,0 +1,55 @@
+<div class="mainpage-container">
+  <div class="header-row">
+    <h2>Customer List</h2>
+    <button class="add-btn" (click)="openModal()">Add New Customer</button>
+    
+  </div>
+
+<table>
+  <thead>
+    <tr>
+      <th><input type="checkbox" (change)="toggleSelectAll($event)" /></th> <!-- Master checkbox -->
+      <th>Customer No.</th>
+      <th>Name</th>
+      <th>Contact</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cus of customers; let i = index">
+      <td><input type="checkbox" [(ngModel)]="cus.selected" (change)="onSelectionChange()" /></td> <!-- Row checkbox -->
+      <td>{{ cus.CustomerNo }}</td>
+      <td>{{ cus.Name }}</td>
+      <td>{{ cus.Contact }}</td>
+      <td><button (click)="openEditModal(cus)" class="add-btn">Edit</button></td>
+      <td><button (click)="selectCustomer(cus)" class="add-btn">View</button></td>
+      <td><button  [routerLink]="['/details2']" [state]="{ customer: cus }" class="add-btn"> View2</button></td>
+    </tr>
+  </tbody>
+</table>
+<button *ngIf="hasSelectedCustomers()" (click)="deleteSelected()" class="delete-btn">Delete Selected</button>
+<app-details [customer]="currentCustomer"></app-details> 
+</div>
+
+<!-- Modal -->
+<div *ngIf="isModalOpen" class="modal">
+  <div class="modal-content">
+    <h2>{{ isEditMode ? 'Edit Customer' : 'Add New Customer' }}</h2>
+    <form (ngSubmit)="isEditMode ? updateCustomer() : addCustomer()">
+      <label for="customerNo">Customer No.</label>
+      <input id="customerNo" [(ngModel)]="currentCustomer.CustomerNo" name="customerNo" required [readonly]="isEditMode" />
+
+      <label for="name">Name</label>
+      <input id="name" [(ngModel)]="currentCustomer.Name" name="name" required />
+
+      <label for="contact">Contact</label>
+      <input id="contact" [(ngModel)]="currentCustomer.Contact" name="contact" required />
+
+      <button type="submit" class="add-btn">{{ isEditMode ? 'Update' : 'Add' }}</button>
+      <button type="button" class="delete-btn" (click)="closeModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+

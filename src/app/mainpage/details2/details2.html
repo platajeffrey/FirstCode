@@ -1,0 +1,20 @@
+
+<div class="details-container">
+    <div class="details-header">
+    <h2>Customer Details</h2>
+    </div>
+  <div class="details-body">
+    <label>Customer No:</label>
+    <span>{{ customer?.CustomerNo }}</span>
+
+    <label>Name:</label>
+    <span>{{ customer?.Name }}</span>
+
+    <label>Contact:</label>
+    <span>{{ customer?.Contact }}</span>
+
+      <button type="button" (click)="returnMainpage()" class="back-btn">
+      Back to List
+    </button>
+    </div>
+</div>

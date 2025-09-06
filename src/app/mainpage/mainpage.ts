@@ -82,7 +82,7 @@ export class Mainpage {
         this.closeModal();  
       },
       error: (err) => {
-        console.error('Error updating customer:', err);
+        console.error('Error updating customer: ', err);
       }
     });
   }

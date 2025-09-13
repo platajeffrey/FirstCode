@@ -22,4 +22,8 @@ export interface StudentID {
     Name: string;
     Contact: string;
     selected?: boolean;
+    LoanAmount: number;
+    threeMonths: number;
+    sixMonths: number;
+    oneYear: number;
 }

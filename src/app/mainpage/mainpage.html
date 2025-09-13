@@ -12,6 +12,9 @@
       <th>Customer No.</th>
       <th>Name</th>
       <th>Contact</th>
+      <th>3 months</th>
+      <th>6 months</th>
+      <th>1 year</th>
       <th></th>
       <th></th>
       <th></th>
@@ -23,6 +26,9 @@
       <td>{{ cus.CustomerNo }}</td>
       <td>{{ cus.Name }}</td>
       <td>{{ cus.Contact }}</td>
+      <td>{{ cus.threeMonths }}</td>
+      <td>{{ cus.sixMonths }}</td>
+      <td>{{ cus.oneYear }}</td>
       <td><button (click)="openEditModal(cus)" class="add-btn">Edit</button></td>
       <td><button (click)="selectCustomer(cus)" class="add-btn">View</button></td>
       <td><button  [routerLink]="['/details2']" [state]="{ customer: cus }" class="add-btn"> View2</button></td>

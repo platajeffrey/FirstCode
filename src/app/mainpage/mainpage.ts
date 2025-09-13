@@ -22,24 +22,40 @@ export class Mainpage {
   isEditMode: boolean = false; 
   isViewMode: boolean = false; 
 
-  currentCustomer: Customers = { CustomerNo: '', Name: '', Contact: '' };
-  newCustomer: Customers = {CustomerNo: '',Name: '',Contact: ''};
+  currentCustomer: Customers = {
+    CustomerNo: '', Name: '', Contact: '',
+    LoanAmount: 0,
+    threeMonths: 0,
+    sixMonths: 0,
+    oneYear: 0
+  };
+  newCustomer: Customers = {
+    CustomerNo: '', Name: '', Contact: '',
+    LoanAmount: 0,
+    threeMonths: 0,
+    sixMonths: 0,
+    oneYear: 0
+  };
 
   constructor(private api: ApiService) {}
 
-  ngOnInit(): void {
-
-  
-    this.api.getCustomers().subscribe({
-      next: (res: Customers[]) => {
-        this.customers = res;
-        console.log(res);
-      },
-      error: (err) => {
-        console.error('Error fetching customers:', err);
-      }
-    });
-  }
+ngOnInit(): void {
+  this.api.getCustomers().subscribe({
+    next: (res: Customers[]) => {
+      this.customers = res.map(c => ({
+        ...c,
+        selected: false,                        
+        threeMonths: parseFloat((c.LoanAmount / 6).toFixed(2)),          
+        sixMonths: parseFloat((c.LoanAmount / 12).toFixed(2)),          
+        oneYear: parseFloat((c.LoanAmount / 24).toFixed(2)),               
+      }));
+      console.log('Processed customers:', this.customers);
+    },
+    error: (err) => {
+      console.error('Error fetching customers:', err);
+    }
+  });
+}
 
 
   addCustomer() {
@@ -119,7 +135,13 @@ export class Mainpage {
   }
 
   openModal() {
-    this.currentCustomer ={ CustomerNo: '', Name: '', Contact: '' }; 
+    this.currentCustomer ={
+    CustomerNo: '', Name: '', Contact: '',
+    LoanAmount: 0,
+    threeMonths: 0,
+    sixMonths: 0,
+    oneYear: 0
+  };
     this.isModalOpen = true;
   }
 
@@ -127,7 +149,13 @@ export class Mainpage {
     this.isModalOpen = false;
     this.isEditMode = false;
     this.isViewMode = false; 
-    this.newCustomer = { CustomerNo: '', Name: '', Contact: '' }; 
+    this.newCustomer = {
+    CustomerNo: '', Name: '', Contact: '',
+    LoanAmount: 0,
+    threeMonths: 0,
+    sixMonths: 0,
+    oneYear: 0
+  };
   }
 
   hasSelectedCustomers(): boolean {

@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-details',
-  imports: [FormsModule, CommonModule ],
+  imports: [CommonModule,FormsModule ],
   templateUrl: './details.html',
   styleUrl: './details.css'
 })
